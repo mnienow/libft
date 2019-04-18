@@ -23,12 +23,10 @@ typedef struct		s_list
 
 size_t				ft_strlen(const char *s);
 void				ft_bzero(void *s, size_t n);
-void				*ft_memccpy(void *restrict d, const void
-		*restrict s, int c, size_t n);
+void				*ft_memccpy(void *d, const void *s, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
-void				*ft_memcpy(void *restrict dst, const void
-		*restrict src, size_t n);
+void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 char				*ft_strcpy(char *dst, const char *src);
@@ -82,4 +80,5 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
 #endif
