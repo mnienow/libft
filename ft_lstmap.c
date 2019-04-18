@@ -13,10 +13,11 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void	jfree(void *cont, size_t size)
+static void	*mbfree(void *cont, size_t size)
 {
 	size = 0;
 	free(cont);
+	return (0);
 }
 
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
@@ -33,7 +34,7 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		lst = lst->next;
 		if (!(lst2->next = f(lst)))
 		{
-			ft_lstdel(&lst3, jfree);
+			ft_lstdel(&lst3, mbfree(lst3->content, lst3->content_size));
 			return (NULL);
 		}
 		lst2 = lst2->next;
