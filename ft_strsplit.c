@@ -64,16 +64,10 @@ static char	**instr(const char *s, char **a, char c)
 			i++;
 		j = 0;
 		while (s[i] != c && s[i])
-		{
-			a[k][j] = s[i];
-			j++;
-			i++;
-		}
+			a[k][j++] = s[i++];
 		if (j > 0)
-			a[k][j] = '\0';
-		k++;
+			a[k++][j] = '\0';
 	}
-	k = (j > 0 ? k : --k);
 	return (a);
 }
 
