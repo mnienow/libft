@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arrlen.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnienow <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/30 18:27:32 by mnienow           #+#    #+#             */
-/*   Updated: 2019/10/25 20:00:13 by mnienow          ###   ########.fr       */
+/*   Created: 2019/12/05 19:32:58 by mnienow           #+#    #+#             */
+/*   Updated: 2019/12/05 19:33:06 by mnienow          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-size_t	ft_arrlen(void **arr)
+int			ft_isspace(char c)
 {
-	size_t	len;
-
-	len = 0;
-	while (arr[len])
-		len++;
-	return (len);
+	if (c == '\t' || c == '\n' || c == '\v'
+	|| c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	return (0);
 }

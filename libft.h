@@ -6,13 +6,24 @@
 /*   By: mnienow <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 18:59:05 by mnienow           #+#    #+#             */
-/*   Updated: 2018/12/06 22:32:17 by mnienow          ###   ########.fr       */
+/*   Updated: 2019/11/09 14:46:54 by mnienow          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFF_SIZE 8
+# define FD_SIZE 4096
+# include <stdio.h>
+# include <fcntl.h>
+# include <sys/uio.h>
 # include <string.h>
+# include <sys/types.h>
+# include <unistd.h>
+# include <stdlib.h>
+# if (BUFF_SIZE <= 0)
+#  error BUFF_SIZE cannot be <= 0
+# endif
 
 typedef struct		s_list
 {
@@ -22,14 +33,17 @@ typedef struct		s_list
 }					t_list;
 
 size_t				ft_arrlen(void **arr);
+int					ft_arr_word_count(char **arr, int args);
 int					ft_atoi(const char *str);
+long				ft_atol(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
-int     			ft_isnumber(char *str);
+int					ft_isnumber(char *str);
 int					ft_isprint(int c);
+int					ft_isspace(char c);
 char				*ft_itoa(int n);
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -53,6 +67,7 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbr(int n);
 void				ft_putstr_fd(const char *s, int fd);
 void				ft_putstr(char const *s);
+void				ft_qs(long *number, int first, int last);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strchr(const char *s, int c);
 void				ft_strclr(char *s);
@@ -82,5 +97,6 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+int					get_next_line(int fd, char **line);
 
 #endif

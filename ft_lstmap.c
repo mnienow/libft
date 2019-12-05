@@ -15,6 +15,7 @@
 
 static void	*mbfree(void *cont, size_t size)
 {
+	(void)size;
 	size = 0;
 	free(cont);
 	return (0);
